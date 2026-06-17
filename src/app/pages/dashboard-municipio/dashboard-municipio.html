@@ -1,0 +1,193 @@
+<div class="dashboard-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div>
+
+      <h2 class="logo">
+        MunicEvents
+      </h2>
+
+      <p class="municipio-name">
+        Municipalidad de Santiago
+      </p>
+
+      <ul class="menu">
+
+        <li class="active">
+          <i class="bi bi-grid"></i>
+          Dashboard
+        </li>
+
+         <li routerLink="/eventos">
+          <i class="bi bi-chat-dots"></i>
+          Eventos
+        </li>
+
+        <li>
+          <i class="bi bi-qr-code"></i>
+          Interacciones QR
+        </li>
+
+        <li routerLink="/comentarios">
+          <i class="bi bi-chat-dots"></i>
+          Comentarios
+        </li>
+        <li>
+          <i class="bi bi-bar-chart"></i>
+          Métricas
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="logout">
+      <i class="bi bi-box-arrow-left"></i>
+      Cerrar sesión
+    </div>
+
+  </div>
+
+  <!-- CONTENIDO -->
+
+  <div class="main-content">
+
+    <div class="topbar">
+
+      <div>
+
+        <h3>
+          Dashboard Municipio
+        </h3>
+
+        <p>
+          Gestión y monitoreo de eventos municipales
+        </p>
+
+      </div>
+
+     
+    </div>
+
+    <!-- MÉTRICAS -->
+
+    <div class="cards-container">
+
+      <div class="metric-card card-eventos">
+        <div>
+          <p>Eventos Activos</p>
+          <h2>12</h2>
+        </div>
+
+        <i class="bi bi-calendar-event"></i>
+      </div>
+
+      <div class="metric-card card-interacciones">
+        <div>
+          <p>Interacciones QR</p>
+          <h2>2.541</h2>
+        </div>
+
+        <i class="bi bi-qr-code"></i>
+      </div>
+
+      <div class="metric-card card-interesados">
+        <div>
+          <p>Usuarios Interesados</p>
+          <h2>1.842</h2>
+        </div>
+
+        <i class="bi bi-heart"></i>
+      </div>
+
+      <div class="metric-card card-valoracion">
+        <div>
+          <p>Valoración Promedio</p>
+          <h2>4.7</h2>
+        </div>
+
+        <i class="bi bi-star-fill"></i>
+      </div>
+
+    </div>
+
+    <!-- EVENTOS -->
+
+    <div class="events-section">
+
+      <div class="section-header">
+
+        <h4>
+          Eventos Publicados
+        </h4>
+
+        <button class="btn btn-primary">
+          Ver Todos
+        </button>
+
+      </div>
+
+      <div class="event-card">
+
+        <div>
+
+          <h5>Feria Costumbrista</h5>
+
+          <p>
+            Plaza de Armas · 12 Junio 2026
+          </p>
+
+        </div>
+
+        <div class="event-stats">
+
+          <span>
+            <i class="bi bi-heart-fill"></i>
+            452 interesados
+          </span>
+
+          <span>
+            <i class="bi bi-qr-code"></i>
+            328 interacciones
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="event-card">
+
+        <div>
+
+          <h5>Festival Cultural</h5>
+
+          <p>
+            Parque O'Higgins · 18 Junio 2026
+          </p>
+
+        </div>
+
+        <div class="event-stats">
+
+          <span>
+            <i class="bi bi-heart-fill"></i>
+            781 interesados
+          </span>
+
+          <span>
+            <i class="bi bi-qr-code"></i>
+            502 interacciones
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

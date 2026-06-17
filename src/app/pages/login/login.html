@@ -1,0 +1,90 @@
+<div class="video-container">
+
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="/video/videodemo.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="content-container">
+
+        <!-- LADO IZQUIERDO -->
+        <div class="left-section">
+
+            <div class="branding">
+
+                <img src="logo/logo.png" alt="Logo DondeVamos" class="logo-image">
+
+                <h1 class="main-title">
+                    DondeVamos
+                </h1>
+
+                <p class="main-description">
+                    Plataforma para la gestión y difusión
+                    de eventos municipales.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- LADO DERECHO -->
+        <div class="right-section">
+
+            <div class="login-card">
+
+                <div class="mb-5">
+
+                    <h2 class="login-title">
+                        Bienvenido
+                    </h2>
+
+                    <p class="login-subtitle">
+                        Inicia sesión para continuar
+                    </p>
+
+                </div>
+
+                <form>
+
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Correo
+                        </label>
+
+                        <input type="email" class="form-control" placeholder="correo@municipio.cl">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Contraseña
+                        </label>
+
+                        <input type="password" class="form-control" placeholder="********">
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100 login-btn" (click)="iniciarSesion()">
+                        Iniciar Sesión
+                    </button>
+
+                    <div class="register-section">
+
+                        <span>
+                            ¿No tienes cuenta?
+                        </span>
+
+                        <a href="#">
+                            Registrarme
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,243 @@
+<div class="dashboard-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div>
+
+      <h2 class="logo">
+        DondeVámos
+      </h2>
+
+      <ul class="menu">
+
+        <li class="active">
+          <i class="bi bi-grid"></i>
+          Dashboard
+        </li>
+
+        <li routerLink="/mantenedor-municipio">
+          <i class="bi bi-buildings"></i>
+          Municipios
+        </li>       
+
+        <li>
+          <i class="bi bi-graph-up"></i>
+          Métricas
+        </li>
+
+        <li>
+          <i class="bi bi-people"></i>
+          Usuarios
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="logout">
+
+      <i class="bi bi-box-arrow-left"></i>
+
+      Cerrar sesión
+
+    </div>
+
+  </div>
+
+  <!-- CONTENIDO -->
+
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+      <div>
+
+        <h3>
+          Dashboard Administrador
+        </h3>
+
+        <p>
+          Bienvenido al panel principal
+        </p>
+
+      </div>
+
+      <div class="admin-profile">
+
+        <i class="bi bi-person-circle"></i>
+
+        <div>
+
+          <div class="fw-bold">
+            Administrador
+          </div>
+
+          <small>
+            Sistema MunicEvents
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MÉTRICAS -->
+
+    <div class="cards-container">
+
+      <div
+        class="metric-card card-municipios"
+        routerLink="/mantenedor-municipio"
+      >
+
+        <div>
+
+          <p>Total Municipios</p>
+
+          <h2>24</h2>
+
+        </div>
+
+        <i class="bi bi-buildings"></i>
+
+      </div>
+
+      <div class="metric-card card-eventos">
+
+        <div>
+
+          <p>Eventos Publicados</p>
+
+          <h2>132</h2>
+
+        </div>
+
+        <i class="bi bi-calendar-event"></i>
+
+      </div>
+
+      <div class="metric-card card-usuarios">
+
+        <div>
+
+          <p>Usuarios Activos</p>
+
+          <h2>4.521</h2>
+
+        </div>
+
+        <i class="bi bi-people"></i>
+
+      </div>
+
+      <div class="metric-card card-qr">
+
+        <div>
+
+          <p>Interacciones QR</p>
+
+          <h2>9.842</h2>
+
+        </div>
+
+        <i class="bi bi-qr-code"></i>
+
+      </div>
+
+    </div>
+
+    <!-- TABLA -->
+
+    <div class="table-section">
+
+      <div class="table-header">
+
+        <h4>
+          Municipios Registrados
+        </h4>
+
+      </div>
+
+      <table class="table table-hover">
+
+        <thead>
+
+          <tr>
+            <th>Municipio</th>
+            <th>Comuna</th>
+            <th>Eventos</th>
+            <th>Estado</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>Municipalidad de Santiago</td>
+
+            <td>Santiago</td>
+
+            <td>24</td>
+
+            <td>
+
+              <span class="badge bg-success">
+                Activo
+              </span>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Municipalidad de Providencia</td>
+
+            <td>Providencia</td>
+
+            <td>18</td>
+
+            <td>
+
+              <span class="badge bg-success">
+                Activo
+              </span>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Municipalidad de Maipú</td>
+
+            <td>Maipú</td>
+
+            <td>12</td>
+
+            <td>
+
+              <span class="badge bg-warning text-dark">
+                Pendiente
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

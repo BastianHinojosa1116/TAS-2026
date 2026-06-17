@@ -1,0 +1,269 @@
+<div class="form-card">
+
+ <div class="header-section">
+
+  <div>
+
+    <h2>
+      Mantenedor de Municipios
+    </h2>
+
+    <p>
+      Administración de municipios y responsable de contacto.
+    </p>
+
+  </div>
+
+  <a
+    routerLink="/dashboard-admin"
+    class="btn btn-secondary"
+  >
+    <i class="bi bi-arrow-left"></i>
+    Volver al Dashboard
+  </a>
+
+</div>
+  
+
+  <div class="row">
+
+    <!-- REGIÓN -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Región
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        value="Región Metropolitana de Santiago"
+        readonly
+      >
+
+    </div>
+
+    <!-- PROVINCIA -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Provincia
+      </label>
+
+      <select
+        class="form-select"
+        (change)="seleccionarProvincia($event)"
+      >
+
+        <option value="">
+          Seleccione Provincia
+        </option>
+
+        <option
+          *ngFor="let provincia of provincias"
+          [value]="provincia"
+        >
+          {{ provincia }}
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- COMUNA -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Comuna
+      </label>
+
+      <select
+        class="form-select"
+        [disabled]="comunas.length === 0"
+        (change)="seleccionarComuna($event)"
+      >
+
+        <option value="">
+          Seleccione Comuna
+        </option>
+
+        <option
+          *ngFor="let comuna of comunas"
+          [value]="comuna"
+        >
+          {{ comuna }}
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- MUNICIPALIDAD -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Municipalidad
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        [value]="municipalidad"
+        readonly
+      >
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<div class="form-card">
+
+  <h4>
+    Encargado Municipal
+  </h4>
+
+  <div class="row">
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Primer Nombre
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese nombres"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Segundo Nombre
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese nombres"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Apellido Paterno
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese apellidos"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Apellido Materno
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese apellidos"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Correo Principal
+      </label>
+
+      <input
+        type="email"
+        class="form-control"
+        placeholder="correo@municipalidad.cl"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Correo Secundario
+      </label>
+
+      <input
+        type="email"
+        class="form-control"
+        placeholder="correo@ejemplo.cl"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Teléfono
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="+56 9 1234 5678"
+      >
+
+    </div>
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+        Cargo
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ej: Encargado de Eventos"
+      >
+
+    </div>
+
+  </div>
+
+  <div class="actions-container">
+
+  <button
+    type="button"
+    class="btn btn-clear"
+  >
+    <i class="bi bi-arrow-clockwise"></i>
+    Limpiar Formulario
+  </button>
+
+  <button
+    type="submit"
+    class="btn btn-save"
+  >
+    <i class="bi bi-floppy"></i>
+    Guardar Municipio
+  </button>
+
+</div>
+
+</div>

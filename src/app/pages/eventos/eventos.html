@@ -1,0 +1,325 @@
+<div class="page-container">
+
+  <div class="form-card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h2>
+          Registrar Evento
+        </h2>
+
+        <p>
+          Crea y administra eventos municipales.
+        </p>
+
+      </div>
+
+      <a
+        routerLink="/dashboard-municipio"
+        class="back-button"
+        title="Volver"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </a>
+
+    </div>
+
+    <form>
+
+      <div class="form-grid">
+
+        <!-- NOMBRE -->
+
+        <div class="form-group">
+
+          <label>
+            Nombre del Evento
+          </label>
+
+          <input
+            type="text"
+            placeholder="Ej: Feria Costumbrista"
+          >
+
+        </div>
+
+        <!-- CATEGORIA -->
+
+        <div class="form-group">
+
+          <label>
+            Categoría
+          </label>
+
+          <select>
+
+            <option selected disabled>
+              Seleccione categoría
+            </option>
+
+            <option>
+              Cultura
+            </option>
+
+            <option>
+              Deportes
+            </option>
+
+            <option>
+              Educación
+            </option>
+
+            <option>
+              Emprendimiento
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- FECHA INICIO -->
+
+        <div class="form-group">
+
+          <label>
+            Fecha Inicio
+          </label>
+
+          <input
+            type="date"
+            [min]="fechaMinima"
+          >
+
+        </div>
+
+        <!-- FECHA FIN -->
+
+        <div class="form-group">
+
+          <label>
+            Fecha Fin
+          </label>
+
+          <input
+            type="date"
+            [min]="fechaMinima"
+          >
+
+        </div>
+
+        <!-- DIRECCION -->
+
+        <div class="form-group full-width">
+
+          <label>
+            Dirección
+          </label>
+
+          <input
+            type="text"
+            placeholder="Dirección donde se realizará el evento"
+          >
+
+        </div>
+
+        <!-- MUNICIPIO -->
+
+        <div class="form-group">
+
+          <label>
+            Municipio
+          </label>
+
+          <select>
+
+            <option selected disabled>
+              Seleccione municipio
+            </option>
+
+            <option>
+              Municipalidad de Santiago
+            </option>
+
+            <option>
+              Municipalidad de Providencia
+            </option>
+
+            <option>
+              Municipalidad de Maipú
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- MODALIDAD -->
+
+        <div class="form-group">
+
+          <label>
+            Modalidad
+          </label>
+
+          <select>
+
+            <option selected disabled>
+              Seleccione modalidad
+            </option>
+
+            <option>
+              Gratuito
+            </option>
+
+            <option>
+              Pagado
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- ASISTENCIA -->
+
+        <div class="form-group">
+
+          <label>
+            Asistencia Estimada
+          </label>
+
+          <input
+            type="number"
+            placeholder="Cantidad estimada de asistentes"
+          >
+
+        </div>
+
+        <!-- ESTADO -->
+
+        <div class="form-group">
+
+          <label>
+            Estado
+          </label>
+
+          <select>
+
+            <option selected disabled>
+              Seleccione estado
+            </option>
+
+            <option>
+              Pendiente
+            </option>
+
+            <option>
+              Activo
+            </option>
+
+            <option>
+              Suspendido
+            </option>
+
+            <option>
+              Cancelado
+            </option>
+
+            <option>
+              Finalizado
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- IMAGEN -->
+
+        <div class="form-group full-width">
+
+          <label>
+            Imagen del Evento
+          </label>
+
+          <input
+            type="file"
+            accept="image/*"
+          >
+
+        </div>
+
+        <!-- DESCRIPCION -->
+
+        <div class="form-group full-width">
+
+          <label>
+            Descripción del Evento
+          </label>
+
+          <textarea
+            rows="5"
+            placeholder="Describe el evento..."
+          ></textarea>
+
+        </div>
+
+        <!-- CARACTERISTICAS -->
+
+        <div class="checkbox-grid full-width">
+
+          <label class="checkbox-item">
+
+            <input type="checkbox">
+
+            Pet Friendly
+
+          </label>
+
+          <label class="checkbox-item">
+
+            <input type="checkbox">
+
+            Accesible para personas con discapacidad
+
+          </label>
+
+          <label class="checkbox-item">
+
+            <input type="checkbox">
+
+            Estacionamiento disponible
+
+          </label>
+
+        </div>
+
+        <!-- INFORMACION -->
+
+        <div class="alert-event full-width">
+
+          <i class="bi bi-info-circle"></i>
+
+          La URL pública y el código QR del evento se generarán automáticamente una vez registrado el evento.
+
+        </div>
+
+        <!-- BOTON -->
+
+        <div class="form-actions full-width">
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Guardar Evento
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
