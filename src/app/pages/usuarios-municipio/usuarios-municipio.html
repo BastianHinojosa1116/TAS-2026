@@ -1,0 +1,10 @@
+<div class="usuarios-slider">
+  <h3>Usuarios Municipio</h3>
+  <div class="slider">
+    <div class="card" *ngFor="let u of usuarios">
+      <h4>{{ u.nombreResponsable }}</h4>
+      <p>{{ u.correo }}</p>
+      <p>{{ u.municipio?.nombre || (u.municipio) }}</p>
+    </div>
+  </div>
+</div>

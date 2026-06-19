@@ -1,120 +1,84 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ProvinciaService, Provincia } from '../../services/provincia.service';
+import { ComunaService } from '../../services/comuna.service';
 
 @Component({
   selector: 'app-mantenedor-municipio',
   standalone: true,
-  imports: [RouterLink,CommonModule,],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './mantenedor-municipio.html',
   styleUrl: './mantenedor-municipio.css'
 })
 export class MantenedorMunicipio {
 
-  provincias: string[] = [
-  'Santiago',
-  'Cordillera',
-  'Chacabuco',
-  'Maipo',
-  'Melipilla',
-  'Talagante'
-];
+  provincias: Provincia[] = [];
+  comunas: Array<any> = [];
+  allComunas: Array<any> = [];
+  selectedProvinciaId: number | null = null;
+  selectedComunaId: number | null = null;
+  municipalidad = '';
 
-comunas: string[] = [];
+  constructor(
+    private provinciaSvc: ProvinciaService,
+    private comunaSvc: ComunaService
+  ) {}
 
-municipalidad = '';
+  ngOnInit() {
+    this.loadProvincias();
+    this.loadComunas();
+  }
 
-datosComunas: any = {
+  loadProvincias() {
+    this.provinciaSvc.getAll().subscribe({
+      next: (prov) => (this.provincias = prov || []),
+      error: (err) => console.error('Error cargando provincias', err)
+    });
+  }
 
-  Santiago: [
-    'Cerrillos',
-    'Cerro Navia',
-    'Conchalí',
-    'El Bosque',
-    'Estación Central',
-    'Huechuraba',
-    'Independencia',
-    'La Cisterna',
-    'La Florida',
-    'La Granja',
-    'La Pintana',
-    'La Reina',
-    'Las Condes',
-    'Lo Barnechea',
-    'Lo Espejo',
-    'Lo Prado',
-    'Macul',
-    'Maipú',
-    'Ñuñoa',
-    'Pedro Aguirre Cerda',
-    'Peñalolén',
-    'Providencia',
-    'Pudahuel',
-    'Quilicura',
-    'Quinta Normal',
-    'Recoleta',
-    'Renca',
-    'San Joaquín',
-    'San Miguel',
-    'San Ramón',
-    'Santiago',
-    'Vitacura'
-  ],
+  loadComunas() {
+    this.comunaSvc.getAll().subscribe({
+      next: (com) => {
+        this.allComunas = com || [];
+        console.debug('Comunas cargadas', this.allComunas.slice(0,20));
+        this.filterComunas();
+      },
+      error: (err) => console.error('Error cargando comunas', err)
+    });
+  }
 
-  Cordillera: [
-    'Puente Alto',
-    'Pirque',
-    'San José de Maipo'
-  ],
+  seleccionarProvincia(event: any) {
+    this.selectedProvinciaId = Number(event.target.value) || null;
+    this.filterComunas();
+    this.selectedComunaId = null;
+    this.municipalidad = '';
+  }
 
-  Chacabuco: [
-    'Colina',
-    'Lampa',
-    'Tiltil'
-  ],
+  seleccionarComuna(event: any) {
+    this.selectedComunaId = Number(event.target.value) || null;
+    const comuna = this.comunas.find((c) => {
+      // comuna id may be in different properties depending on backend
+      return (c.idComuna && c.idComuna === this.selectedComunaId) || (c.id && c.id === this.selectedComunaId);
+    });
+    const nombre = comuna?.nombreProvicia || comuna?.nombre || comuna?.nombreComuna || '';
+    this.municipalidad = nombre ? `Municipalidad de ${nombre}` : '';
+  }
 
-  Maipo: [
-    'San Bernardo',
-    'Buin',
-    'Paine',
-    'Calera de Tango'
-  ],
-
-  Melipilla: [
-    'Melipilla',
-    'Curacaví',
-    'María Pinto',
-    'San Pedro',
-    'Alhué'
-  ],
-
-  Talagante: [
-    'Talagante',
-    'Peñaflor',
-    'El Monte',
-    'Isla de Maipo',
-    'Padre Hurtado'
-  ]
-
-};
-
-seleccionarProvincia(event: any) {
-
-  const provincia = event.target.value;
-
-  this.comunas = this.datosComunas[provincia] || [];
-
-  this.municipalidad = '';
-
-}
-
-seleccionarComuna(event: any) {
-
-  const comuna = event.target.value;
-
-  this.municipalidad =
-    `Municipalidad de ${comuna}`;
-
-}
+  private filterComunas() {
+    if (!this.selectedProvinciaId) {
+      this.comunas = [];
+      return;
+    }
+    this.comunas = this.allComunas.filter((comuna) => {
+      // provincia may be an object { idProvincia } or just an id number
+      const prov = comuna.provincia;
+      const provId = prov && typeof prov === 'object' ? prov.idProvincia : prov;
+      // some APIs return idProvincia directly on comuna
+      const directProvId = (comuna.idProvincia !== undefined) ? comuna.idProvincia : null;
+      return Number(provId) === Number(this.selectedProvinciaId) || Number(directProvId) === Number(this.selectedProvinciaId);
+    });
+  }
 
 }

@@ -7,6 +7,7 @@ import { MantenedorMunicipio } from './pages/mantenedor-municipio/mantenedor-mun
 import { Comentarios } from './pages/comentarios/comentarios';
 import { Eventos } from './pages/eventos/eventos';
 import { ComentarioEvento } from './pages/comentario-evento/comentario-evento';
+import { UsuariosMunicipio } from './pages/usuarios-municipio/usuarios-municipio';
 
 export const routes: Routes = [
 
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'mantenedor-municipio',
     component: MantenedorMunicipio
+  },
+  {
+    path: 'usuarios-municipio',
+    component: UsuariosMunicipio
   },
 
   {

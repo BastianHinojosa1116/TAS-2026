@@ -395,3 +395,16 @@
     gap: 10px;
   }
 }
+
+/* MUNICIPIOS */
+
+.municipios-section { background: linear-gradient(135deg, #2D3047, #5B638E); border-radius: 16px; padding: 20px; margin-top: 24px; color:white; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.municipios-list { display:flex; gap:12px; flex-wrap:wrap; margin-bottom: 18px; }
+.municipio-card { background: rgba(255,255,255,0.06); padding:12px; border-radius:12px; min-width:180px;}
+.centered-form { max-width:560px; margin: 0 auto; background: rgba(0,0,0,0.35); padding:16px; border-radius:12px; }
+.centered-form h4 { color:white; margin-top:0; }
+.form-row { display:flex; flex-direction:column; margin-bottom:10px; }
+.form-row label { color: #ddd; margin-bottom:6px;}
+.form-row input, .form-row select { padding:8px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); color: white; }
+.form-actions { text-align:right; }
+@media (max-width:768px) { .centered-form { padding:12px; } .municipios-list { gap:10px; } }

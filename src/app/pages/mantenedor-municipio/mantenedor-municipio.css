@@ -119,6 +119,34 @@
   color: white;
 }
 
+/* Make option text visible in selects across browsers */
+.form-select option {
+  color: white;
+  background: #0f172a;
+}
+
+/* Improve dropdown visuals */
+.form-select {
+  padding: 10px 12px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.form-select option {
+  padding: 8px 10px;
+}
+
+/* Limit dropdown max height to avoid overly tall list */
+.form-select::-webkit-scrollbar { width: 8px; }
+.form-select { max-height: 44px; }
+.form-select[aria-expanded="true"] { max-height: none; }
+
+/* Fallback for browsers that render native option backgrounds differently */
+.form-select option:hover {
+  background: rgba(255,255,255,0.06);
+  color: white;
+}
+
 .form-control:focus,
 .form-select:focus {
 

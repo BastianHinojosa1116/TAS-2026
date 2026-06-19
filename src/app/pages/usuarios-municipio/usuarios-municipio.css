@@ -1,0 +1,27 @@
+.usuarios-slider {
+  padding: 20px;
+}
+
+.usuarios-slider h3 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.card {
+  min-width: 220px;
+  background: rgba(255,255,255,0.06);
+  padding: 14px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.card h4 { margin: 0 0 6px 0 }
+.card p { margin: 0; opacity: .85 }

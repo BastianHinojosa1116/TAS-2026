@@ -99,7 +99,7 @@
 
           <p>Total Municipios</p>
 
-          <h2>24</h2>
+          <h2>{{ totalMunicipios }}</h2>
 
         </div>
 
@@ -113,7 +113,7 @@
 
           <p>Eventos Publicados</p>
 
-          <h2>132</h2>
+          <h2>{{ totalEventos }}</h2>
 
         </div>
 
@@ -127,7 +127,7 @@
 
           <p>Usuarios Activos</p>
 
-          <h2>4.521</h2>
+          <h2>{{ totalUsuariosActivos }}</h2>
 
         </div>
 
@@ -177,61 +177,16 @@
         </thead>
 
         <tbody>
-
-          <tr>
-
-            <td>Municipalidad de Santiago</td>
-
-            <td>Santiago</td>
-
-            <td>24</td>
-
+          <tr *ngFor="let m of municipiosList">
+            <td>{{ m.nombre || m.municipio?.nombre || m.nombreMunicipio }}</td>
+            <td>{{ m.comuna?.nombreProvicia || m.comuna?.nombre || m.comuna || m.nombreComuna }}</td>
+            <td>{{ m.cantidadEventos ?? (m.eventos?.length ?? '-') }}</td>
             <td>
-
-              <span class="badge bg-success">
-                Activo
+              <span [ngClass]="{'badge bg-success': (m.estado === 'activo' || m.estado === true), 'badge bg-warning text-dark': (m.estado === 'pendiente' || m.estado === 'inactivo')}">
+                {{ (m.estado === true) ? 'Activo' : (m.estado || '-') }}
               </span>
-
             </td>
-
           </tr>
-
-          <tr>
-
-            <td>Municipalidad de Providencia</td>
-
-            <td>Providencia</td>
-
-            <td>18</td>
-
-            <td>
-
-              <span class="badge bg-success">
-                Activo
-              </span>
-
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>Municipalidad de Maipú</td>
-
-            <td>Maipú</td>
-
-            <td>12</td>
-
-            <td>
-
-              <span class="badge bg-warning text-dark">
-                Pendiente
-              </span>
-
-            </td>
-
-          </tr>
-
         </tbody>
 
       </table>
