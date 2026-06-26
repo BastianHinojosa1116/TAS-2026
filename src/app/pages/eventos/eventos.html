@@ -19,9 +19,10 @@
       <a
         routerLink="/dashboard-municipio"
         class="back-button"
-        title="Volver"
-      >
+        title="Volver">
+
         <i class="bi bi-arrow-left"></i>
+
       </a>
 
     </div>
@@ -40,12 +41,14 @@
 
           <input
             type="text"
-            placeholder="Ej: Feria Costumbrista"
-          >
+            class="form-control"
+            [(ngModel)]="nombreEvento"
+            name="nombreEvento"
+            placeholder="Ej: Feria Costumbrista">
 
         </div>
 
-        <!-- CATEGORIA -->
+        <!-- CATEGORÍA -->
 
         <div class="form-group">
 
@@ -53,63 +56,120 @@
             Categoría
           </label>
 
-          <select>
+          <select
+            class="form-control"
+            [(ngModel)]="selectedCategoria"
+            name="categoria">
 
-            <option selected disabled>
+            <option [ngValue]="null">
+
               Seleccione categoría
+
             </option>
 
-            <option>
-              Cultura
-            </option>
+            <option
+              *ngFor="let categoria of categorias"
+              [ngValue]="categoria.idCategoria">
 
-            <option>
-              Deportes
-            </option>
+              {{ categoria.nombre }}
 
-            <option>
-              Educación
-            </option>
-
-            <option>
-              Emprendimiento
             </option>
 
           </select>
 
         </div>
 
-        <!-- FECHA INICIO -->
+        <!-- FECHA -->
 
         <div class="form-group">
 
           <label>
-            Fecha Inicio
+            Fecha
           </label>
 
           <input
             type="date"
-            [min]="fechaMinima"
-          >
+            class="form-control"
+            [(ngModel)]="fechaSeleccionada"
+            name="fechaSeleccionada"
+            [min]="fechaMinima">
 
         </div>
 
-        <!-- FECHA FIN -->
+        <!-- HORA -->
 
         <div class="form-group">
 
           <label>
-            Fecha Fin
+            Hora
           </label>
 
           <input
-            type="date"
-            [min]="fechaMinima"
-          >
+            type="time"
+            class="form-control"
+            [(ngModel)]="horaSeleccionada"
+            name="horaSeleccionada">
 
         </div>
 
-        <!-- DIRECCION -->
+        <!-- AGREGAR FECHA -->
+
+        <div class="form-group full-width">
+
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="agregarFecha()">
+
+            <i class="bi bi-plus-circle"></i>
+
+            Agregar Fecha
+
+          </button>
+
+        </div>
+
+        <!-- TABLA FECHAS -->
+
+       <div class="fechas-card full-width" *ngIf="fechasEvento.length > 0">
+
+    <h5>
+        <i class="bi bi-calendar-event"></i>
+        Fechas del Evento
+    </h5>
+
+    <div
+        class="fecha-item"
+        *ngFor="let fecha of fechasEvento; let i=index">
+
+        <div class="fecha-info">
+
+            <span>
+                <i class="bi bi-calendar3"></i>
+                {{ fecha.fecha }}
+            </span>
+
+            <span>
+                <i class="bi bi-clock"></i>
+                {{ fecha.horario }}
+            </span>
+
+        </div>
+
+        <button
+            class="btn-delete"
+            type="button"
+            (click)="eliminarFecha(i)">
+
+            <i class="bi bi-trash"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+        <!-- DIRECCIÓN -->
 
         <div class="form-group full-width">
 
@@ -119,79 +179,41 @@
 
           <input
             type="text"
-            placeholder="Dirección donde se realizará el evento"
-          >
+            class="form-control"
+            [(ngModel)]="direccion"
+            name="direccion"
+            placeholder="Dirección donde se realizará el evento">
 
         </div>
 
-        <!-- MUNICIPIO -->
+        <!-- PAGADO -->
 
         <div class="form-group">
 
           <label>
-            Municipio
+
+            Pagado
+
           </label>
 
-          <select>
+          <select
+            class="form-control"
+            [(ngModel)]="esPagado"
+            name="esPagado">
 
-            <option selected disabled>
-              Seleccione municipio
+            <option [ngValue]="true">
+
+              Sí
+
             </option>
 
-            <option>
-              Municipalidad de Santiago
-            </option>
+            <option [ngValue]="false">
 
-            <option>
-              Municipalidad de Providencia
-            </option>
+              No
 
-            <option>
-              Municipalidad de Maipú
             </option>
 
           </select>
-
-        </div>
-
-        <!-- MODALIDAD -->
-
-        <div class="form-group">
-
-          <label>
-            Modalidad
-          </label>
-
-          <select>
-
-            <option selected disabled>
-              Seleccione modalidad
-            </option>
-
-            <option>
-              Gratuito
-            </option>
-
-            <option>
-              Pagado
-            </option>
-
-          </select>
-
-        </div>
-
-        <!-- ASISTENCIA -->
-
-        <div class="form-group">
-
-          <label>
-            Asistencia Estimada
-          </label>
-
-          <input
-            type="number"
-            placeholder="Cantidad estimada de asistentes"
-          >
 
         </div>
 
@@ -200,76 +222,75 @@
         <div class="form-group">
 
           <label>
+
             Estado
+
           </label>
 
-          <select>
+          <select
+            class="form-control"
+            [(ngModel)]="estado"
+            name="estado">
 
-            <option selected disabled>
-              Seleccione estado
+            <option>
+
+              Disponible
+
             </option>
 
             <option>
-              Pendiente
-            </option>
 
-            <option>
-              Activo
-            </option>
-
-            <option>
               Suspendido
+
             </option>
 
             <option>
+
               Cancelado
+
             </option>
 
             <option>
+
               Finalizado
+
             </option>
 
           </select>
 
         </div>
 
-        <!-- IMAGEN -->
+        <!-- DESCRIPCIÓN -->
 
         <div class="form-group full-width">
 
           <label>
-            Imagen del Evento
-          </label>
 
-          <input
-            type="file"
-            accept="image/*"
-          >
+            Descripción
 
-        </div>
-
-        <!-- DESCRIPCION -->
-
-        <div class="form-group full-width">
-
-          <label>
-            Descripción del Evento
           </label>
 
           <textarea
             rows="5"
-            placeholder="Describe el evento..."
-          ></textarea>
+            class="form-control"
+            [(ngModel)]="descripcionEvento"
+            name="descripcionEvento"
+            placeholder="Describe el evento...">
+
+          </textarea>
 
         </div>
 
-        <!-- CARACTERISTICAS -->
+        <!-- CHECKBOX -->
 
         <div class="checkbox-grid full-width">
 
           <label class="checkbox-item">
 
-            <input type="checkbox">
+            <input
+              type="checkbox"
+              [(ngModel)]="petFriendly"
+              name="petFriendly">
 
             Pet Friendly
 
@@ -277,7 +298,10 @@
 
           <label class="checkbox-item">
 
-            <input type="checkbox">
+            <input
+              type="checkbox"
+              [(ngModel)]="accesibilidadDiscapacidad"
+              name="accesibilidadDiscapacidad">
 
             Accesible para personas con discapacidad
 
@@ -285,7 +309,10 @@
 
           <label class="checkbox-item">
 
-            <input type="checkbox">
+            <input
+              type="checkbox"
+              [(ngModel)]="estacionamiento"
+              name="estacionamiento">
 
             Estacionamiento disponible
 
@@ -293,7 +320,7 @@
 
         </div>
 
-        <!-- INFORMACION -->
+        <!-- INFORMACIÓN -->
 
         <div class="alert-event full-width">
 
@@ -303,15 +330,17 @@
 
         </div>
 
-        <!-- BOTON -->
+        <!-- BOTÓN -->
 
         <div class="form-actions full-width">
 
           <button
-            type="submit"
+            type="button"
             class="btn btn-primary"
-          >
+            (click)="guardarEvento()">
+
             Guardar Evento
+
           </button>
 
         </div>

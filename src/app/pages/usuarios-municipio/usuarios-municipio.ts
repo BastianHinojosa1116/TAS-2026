@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsuariosMunicipioService } from '../../services/usuarios-municipio.service';
+import { UsuarioMunicipioService } from '../../services/usuario-municipio.service';
 
 @Component({
   selector: 'app-usuarios-municipio',
@@ -10,10 +10,11 @@ import { UsuariosMunicipioService } from '../../services/usuarios-municipio.serv
   styleUrl: './usuarios-municipio.css'
 })
 export class UsuariosMunicipio {
+  
 
   usuarios: any[] = [];
 
-  constructor(private usrSvc: UsuariosMunicipioService) {}
+  constructor(private usrSvc: UsuarioMunicipioService) {}
 
   ngOnInit() {
     this.load();
@@ -25,5 +26,7 @@ export class UsuariosMunicipio {
       error: (e) => console.error('Error cargando usuarios municipio', e)
     });
   }
+
+  
 
 }

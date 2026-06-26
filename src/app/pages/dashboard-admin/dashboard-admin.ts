@@ -4,11 +4,18 @@ import { CommonModule } from '@angular/common';
 import { EventoService } from '../../services/evento.service';
 import { MunicipioService } from '../../services/municipio.service';
 import { UsuariosAppService } from '../../services/usuarios-app.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { SidebarAdmin } from '../../components/sidebar-admin/sidebar-admin';
 
 @Component({
   selector: 'app-dashboard-admin',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [
+  RouterLink,
+  CommonModule,
+  SidebarAdmin
+],
   templateUrl: './dashboard-admin.html',
   styleUrl: './dashboard-admin.css'
 })
@@ -22,7 +29,9 @@ export class DashboardAdmin {
   constructor(
     private municipioSvc: MunicipioService,
     private eventoSvc: EventoService,
-    private usuariosSvc: UsuariosAppService
+    private usuariosSvc: UsuariosAppService,
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -39,5 +48,18 @@ export class DashboardAdmin {
   loadMunicipiosTable() {
     this.municipioSvc.getAll().subscribe({ next: (m) => this.municipiosList = m || [], error: (e) => console.error(e) });
   }
+
+  async cerrarSesion() {
+
+  await this.authService.logout();
+
+  localStorage.clear();
+
+  this.router.navigate([
+    '/'
+  ]);
+
+}
+  
 
 }

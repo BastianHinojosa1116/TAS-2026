@@ -24,23 +24,25 @@
 
 .sidebar {
 
-  width: 280px;
+    width: 270px;
 
-  background: linear-gradient(
-    180deg,
-    #2D3047,
-    #3d4264
-  );
+    height: 100vh;
 
-  color: white;
+    display: flex;
 
-  padding: 30px 20px;
+    flex-direction: column;
 
-  display: flex;
+    justify-content: space-between;
 
-  flex-direction: column;
+    padding: 30px 20px;
 
-  justify-content: space-between;
+    background: rgba(15, 23, 42, 0.92);
+
+    backdrop-filter: blur(12px);
+
+    border-right: 1px solid rgba(255,255,255,.08);
+
+    color: white;
 }
 
 .logo {
@@ -99,11 +101,43 @@
 
 .logout {
 
-  padding: 15px 20px;
+    display: flex;
 
-  border-radius: 12px;
+    align-items: center;
 
-  cursor: pointer;
+    gap: 12px;
+
+    padding: 16px 20px;
+
+    margin: 20px;
+
+    border-radius: 12px;
+
+    background: rgba(239, 68, 68, 0.12);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+
+    color: #f87171;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.logout:hover {
+
+    background: rgba(239, 68, 68, 0.22);
+
+    transform: translateX(4px);
+
+    color: #ffffff;
+}
+
+.logout i {
+
+    font-size: 18px;
 }
 
 .logout:hover {
@@ -394,6 +428,100 @@
 
     gap: 10px;
   }
+
+  
+}
+
+.empty-events{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    padding:50px;
+
+    color:#cbd5e1;
+
+    background:#2d3650;
+
+    border-radius:16px;
+
+}
+
+.empty-events i{
+
+    font-size:55px;
+
+    color:#64748b;
+
+}
+
+.empty-events p{
+
+    margin:0;
+
+    font-size:18px;
+
+}
+
+/*==========================
+ BOTÓN DESCARGAR QR
+==========================*/
+
+.btn-download {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 12px 22px;
+
+    font-weight: 600;
+
+    transition: all .25s ease;
+
+    box-shadow: 0 6px 18px rgba(37,99,235,.30);
+
+}
+
+.btn-download:hover {
+
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(37,99,235,.45);
+
+}
+
+.btn-download:active {
+
+    transform: scale(.97);
+
+}
+
+.btn-download i {
+
+    font-size: 1rem;
+
 }
 
 /* MUNICIPIOS */

@@ -47,37 +47,52 @@
 
                 <form>
 
+                    <!-- CORREO -->
+
                     <div class="mb-4">
+
                         <label class="form-label">
-                            Correo
+                            Correo electrónico
                         </label>
 
-                        <input type="email" class="form-control" placeholder="correo@municipio.cl">
+                        <input class="form-control" type="email" name="correo" [(ngModel)]="correo"
+                            placeholder="Correo electrónico">
+
                     </div>
 
+                    <!-- PASSWORD -->
+
                     <div class="mb-4">
+
                         <label class="form-label">
                             Contraseña
                         </label>
 
-                        <input type="password" class="form-control" placeholder="********">
+                        <input class="form-control" type="password" name="password" [(ngModel)]="password"
+                            placeholder="Contraseña">
+
                     </div>
 
-                    <button type="button" class="btn btn-primary w-100 login-btn" (click)="iniciarSesion()">
-                        Iniciar Sesión
+                    <!-- BOTON INICIAR SESION -->
+
+                    <button type="button" class="login-btn" (click)="iniciarSesion()">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Ingresar
+
                     </button>
 
-                    <div class="register-section">
+                    <div class="forgot-password">
 
-                        <span>
-                            ¿No tienes cuenta?
-                        </span>
-
-                        <a href="#">
-                            Registrarme
+                        <a (click)="recuperarPassword()">
+                            Establecer / recuperar contraseña
                         </a>
 
                     </div>
+
+
+
+
 
                 </form>
 

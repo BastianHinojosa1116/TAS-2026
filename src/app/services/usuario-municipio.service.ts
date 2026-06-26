@@ -8,7 +8,7 @@ export interface UsuarioMunicipio {
   nombreResponsable: string;
   correo: string;
   telefono?: string;
-  estado?: string;
+  estado?: number;
   idRol?: number;
   idMunicipio?: number;
   rol?: any;
@@ -18,13 +18,29 @@ export interface UsuarioMunicipio {
 @Injectable({ providedIn: 'root' })
 export class UsuarioMunicipioService {
   private base = `${environment.apiBaseUrl}/usuarios-municipio`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<UsuarioMunicipio[]> {
     return this.http.get<UsuarioMunicipio[]>(this.base);
   }
 
+  getById(id: number) {
+    return this.http.get<any>(
+      `${this.base}/${id}`
+    );
+  }
+
+  getByFirebaseUid(uid: string) {
+
+    return this.http.get<UsuarioMunicipio>(
+      `${this.base}/firebase/${uid}`
+    );
+
+  }
+
   create(payload: Partial<UsuarioMunicipio>) {
     return this.http.post<UsuarioMunicipio>(this.base, payload);
   }
+
+
 }

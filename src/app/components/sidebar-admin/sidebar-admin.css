@@ -1,0 +1,104 @@
+.sidebar {
+
+  width: 270px;
+
+  min-width: 270px;
+
+  height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 30px 20px;
+
+  background: rgba(15, 23, 42, 0.95);
+
+  backdrop-filter: blur(12px);
+
+  border-right: 1px solid rgba(255,255,255,.08);
+
+  color: white;
+
+  position: fixed;
+
+  left: 0;
+
+  top: 0;
+}
+
+.logo {
+
+  color: white;
+
+  font-size: 2rem;
+
+  font-weight: bold;
+
+  margin-bottom: 50px;
+}
+
+.menu {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+}
+
+.menu li {
+
+  color: white;
+
+  padding: 15px 20px;
+
+  margin-bottom: 10px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.menu li:hover {
+
+  background: rgba(255,255,255,.10);
+}
+
+.logout {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px 20px;
+
+  border-radius: 12px;
+
+  background: rgba(239,68,68,.12);
+
+  border: 1px solid rgba(239,68,68,.25);
+
+  color: #f87171;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.logout:hover {
+
+  background: rgba(239,68,68,.25);
+
+  color: white;
+}

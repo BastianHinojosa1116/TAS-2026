@@ -5,103 +5,17 @@
   width: 100%;
 
   min-height: 100vh;
-
-  background: transparent;
 }
 
-/* SIDEBAR */
+app-sidebar-admin {
 
-.sidebar {
+  width: 270px;
 
-  width: 280px;
+  min-width: 270px;
 
-  background: linear-gradient(
-    180deg,
-    #475569,
-    #3f4c61
-  );
-
-  color: white;
-
-  padding: 30px 20px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  border-right: 1px solid rgba(255,255,255,.08);
-
-  backdrop-filter: blur(5px);
+  display: block;
 }
 
-.logo {
-
-  font-size: 2rem;
-
-  font-weight: bold;
-
-  margin-bottom: 50px;
-}
-
-.menu {
-
-  list-style: none;
-
-  padding: 0;
-
-  margin: 0;
-}
-
-.menu li {
-
-  padding: 15px 20px;
-
-  margin-bottom: 10px;
-
-  border-radius: 12px;
-
-  cursor: pointer;
-
-  transition: .3s;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 15px;
-}
-
-.menu li:hover {
-
-  background: rgba(255,255,255,.10);
-}
-
-.menu .active {
-
-  background: #2563eb;
-}
-
-.logout {
-
-  padding: 15px 20px;
-
-  border-radius: 12px;
-
-  cursor: pointer;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 15px;
-}
-
-.logout:hover {
-
-  background: rgba(255,255,255,.10);
-}
 
 /* MAIN */
 
@@ -110,6 +24,8 @@
   flex: 1;
 
   padding: 30px;
+
+  overflow-x: auto;
 }
 
 /* TOPBAR */
@@ -328,8 +244,5 @@
     grid-template-columns: 1fr;
   }
 
-  .sidebar {
-
-    width: 220px;
-  }
+  
 }

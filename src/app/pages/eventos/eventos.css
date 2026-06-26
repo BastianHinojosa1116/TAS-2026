@@ -7,22 +7,31 @@
   backdrop-filter: blur(2px);
 
   padding: 30px;
+
 }
 
 /* HEADER */
 
 .page-header {
+
   margin-bottom: 30px;
+
 }
 
 .page-header h1 {
+
   color: white;
+
   font-size: 2rem;
+
   font-weight: bold;
+
 }
 
 .page-header p {
+
   color: rgba(255,255,255,.7);
+
 }
 
 /* CARD */
@@ -38,6 +47,9 @@
   border-radius: 20px;
 
   padding: 30px;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,.30);
+
 }
 
 .card-header {
@@ -49,6 +61,7 @@
   align-items: center;
 
   margin-bottom: 30px;
+
 }
 
 .card-header h2 {
@@ -58,6 +71,7 @@
   font-weight: bold;
 
   margin-bottom: 5px;
+
 }
 
 .card-header p {
@@ -65,6 +79,7 @@
   color: rgba(255,255,255,.7);
 
   margin: 0;
+
 }
 
 .back-button {
@@ -87,7 +102,8 @@
 
   text-decoration: none;
 
-  transition: .3s;
+  transition: .25s;
+
 }
 
 .back-button:hover {
@@ -95,38 +111,49 @@
   background: #C33A4D;
 
   color: white;
+
+  transform: translateY(-2px);
+
 }
+
 /* GRID */
 
 .form-grid {
+
   display: grid;
 
   gap: 20px;
 
-  grid-template-columns:
-  repeat(2,minmax(0,1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
+
 }
 
 /* LABELS */
 
 .form-group {
+
   display: flex;
+
   flex-direction: column;
+
 }
 
 .form-group label {
+
   color: white;
 
   margin-bottom: 10px;
 
   font-weight: 600;
+
 }
 
 /* INPUTS */
 
 .form-group input,
 .form-group select,
-.form-group textarea {
+.form-group textarea,
+.form-control {
 
   background: #0f172a;
 
@@ -137,42 +164,57 @@
   color: white;
 
   padding: 14px 16px;
+
+  transition: .25s;
+
 }
 
 .form-group textarea {
+
   resize: vertical;
-  min-height: 120px;
+
+  min-height: 130px;
+
 }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-control:focus {
 
   border-color: #C33A4D;
 
   outline: none;
 
-  box-shadow: none;
+  box-shadow: 0 0 0 3px rgba(195,58,77,.15);
+
 }
 
 /* PLACEHOLDER */
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
+
   color: rgba(255,255,255,.65);
+
 }
 
 /* SELECT */
 
 .form-group select option {
+
   background: #0f172a;
+
   color: white;
+
 }
 
 /* FULL */
 
 .full-width {
+
   grid-column: 1 / -1;
+
 }
 
 /* CHECKBOXES */
@@ -183,8 +225,8 @@
 
   gap: 15px;
 
-  grid-template-columns:
-  repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
+
 }
 
 .checkbox-item {
@@ -195,30 +237,54 @@
 
   border-radius: 12px;
 
-  padding: 14px;
+  padding: 15px;
 
   color: white;
 
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
+  transition: .25s;
+
+}
+
+.checkbox-item:hover {
+
+  border-color: #C33A4D;
+
 }
 
 .checkbox-item input {
+
   width: 18px;
+
   height: 18px;
+
 }
 
-/* QR */
+/* ALERTA */
 
-.qr-row {
+.alert-event {
+
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
 
-.qr-row input {
-  flex: 1;
+  align-items: center;
+
+  gap: 10px;
+
+  background: rgba(59,130,246,.08);
+
+  border: 1px solid rgba(59,130,246,.25);
+
+  color: #cbd5e1;
+
+  border-radius: 12px;
+
+  padding: 15px;
+
 }
 
 /* BOTONES */
@@ -234,6 +300,9 @@
   font-weight: bold;
 
   cursor: pointer;
+
+  transition: .25s;
+
 }
 
 .btn-primary {
@@ -241,11 +310,15 @@
   background: #C33A4D;
 
   color: white;
+
 }
 
 .btn-primary:hover {
 
   background: #a92f42;
+
+  transform: translateY(-2px);
+
 }
 
 .btn-secondary {
@@ -253,11 +326,27 @@
   background: #2D3047;
 
   color: white;
+
 }
 
 .btn-secondary:hover {
 
   background: #414766;
+
+}
+
+.btn-success {
+
+  background: #16a34a;
+
+  color: white;
+
+}
+
+.btn-success:hover {
+
+  background: #15803d;
+
 }
 
 /* ACTIONS */
@@ -267,31 +356,277 @@
   display: flex;
 
   justify-content: flex-end;
+
 }
 
 .form-actions .btn {
+
   min-width: 220px;
+
 }
 
 /* FILE */
 
-input[type="file"] {
+input[type=file] {
 
   background: #0f172a;
 
   color: white;
+
+}
+
+/*==========================
+ TABLA FECHAS
+===========================*/
+
+.fechas-card {
+
+  margin-top: 15px;
+
+  background: #111827;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+
+}
+
+.fechas-card h5 {
+
+  padding: 20px 25px;
+
+  margin: 0;
+
+  color: white;
+
+  font-weight: 600;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+.fechas-card h5 i {
+
+  color: #60a5fa;
+
+  margin-right: 8px;
+
+}
+
+.fechas-table thead {
+
+  background: #1f2937;
+
+}
+
+.fechas-table th {
+
+  padding: 16px 22px;
+
+  text-align: left;
+
+  color: #dbeafe;
+
+  font-weight: 600;
+
+}
+
+.fechas-table td {
+
+  padding: 18px 22px;
+
+  border-top: 1px solid rgba(255,255,255,.06);
+
+}
+
+.fechas-table tbody tr {
+
+  transition: .25s;
+
+}
+
+.fechas-table tbody tr:hover {
+
+  background: rgba(255,255,255,.04);
+
+}
+
+.fecha-icono {
+
+  color: #60a5fa;
+
+  margin-right: 8px;
+
+}
+
+.hora-icono {
+
+  color: #fbbf24;
+
+  margin-right: 8px;
+
+}
+
+.btn-delete {
+
+  width: 42px;
+
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+}
+
+.btn-delete:hover {
+
+  background: #dc2626;
+
+  transform: scale(1.08);
+
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
+@media (max-width:900px){
 
-  .form-grid {
-    grid-template-columns: 1fr;
+  .form-grid{
+
+    grid-template-columns:1fr;
+
   }
 
-  .checkbox-grid {
-    grid-template-columns: 1fr;
+  .checkbox-grid{
+
+    grid-template-columns:1fr;
+
   }
+
+ 
+
+}
+
+ /*==========================
+FECHAS DEL EVENTO
+==========================*/
+
+.fechas-card{
+
+    margin-top:20px;
+
+}
+
+.fechas-card h5{
+
+    color:white;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.fecha-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:18px 20px;
+
+    margin-bottom:12px;
+
+    transition:.25s;
+
+}
+
+.fecha-item:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#3b82f6;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+}
+
+.fecha-info{
+
+    display:flex;
+
+    gap:40px;
+
+    align-items:center;
+
+    color:white;
+
+}
+
+.fecha-info span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+
+}
+
+.fecha-info i{
+
+    color:#60a5fa;
+
+}
+
+.btn-delete{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ef4444;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+.btn-delete:hover{
+
+    background:#dc2626;
+
+    transform:scale(1.08);
 
 }

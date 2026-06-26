@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import Swal from 'sweetalert2';
-import { MantenedorMunicipio } from './mantenedor-municipio';
 
-describe('MantenedorMunicipio', () => {
-  let component: MantenedorMunicipio;
-  let fixture: ComponentFixture<MantenedorMunicipio>;
+import { SidebarAdmin } from './sidebar-admin';
+
+describe('SidebarAdmin', () => {
+  let component: SidebarAdmin;
+  let fixture: ComponentFixture<SidebarAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MantenedorMunicipio]
+      imports: [SidebarAdmin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MantenedorMunicipio);
+    fixture = TestBed.createComponent(SidebarAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

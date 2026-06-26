@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/api'
+  apiBaseUrl: 'https://appservice-dondevamos-backend-gvccemdkdneag9b5.eastus2-01.azurewebsites.net/api'
 };
